@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<EventManagementMVC.Models.UserRegistration>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+<h2>User List</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<p>
+    <a href="@Url.Action("Create", "UserRegistration")" class="btn btn-success">Create New User</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>UserEmail</th>
+            <th>Age</th>
+            <th>PhoneNumber</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.UserEmail</td>
+                <td>@user.Age</td>
+                <td>@user.PhoneNumber</td>
+                <td>@(user.Role != null ? user.Role.RoleName : "-")</td>
+                <td>
+                    <a href="@Url.Action("Details", "UserRegistration", new { id = user.UserID })" class="btn btn-info btn-sm">Details</a>
+                    <a href="@Url.Action("Edit", "UserRegistration", new { id = user.UserID })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", "UserRegistration", new { id = user.UserID })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
