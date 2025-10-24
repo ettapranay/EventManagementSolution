@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddSwaggerGen();
 // Swagger with JWT support
 builder.Services.AddSwaggerGen(options =>
 {
@@ -76,17 +76,16 @@ builder.Services.AddDbContext<EventDB>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event Management API v1");
-    c.RoutePrefix = string.Empty; // Swagger UI at root (http://localhost:5094/)
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event Management API v1");
+        c.RoutePrefix = string.Empty; // Swagger UI at root (http://localhost:5094/)
+    });
+}
+
 
 app.UseHttpsRedirection();
 

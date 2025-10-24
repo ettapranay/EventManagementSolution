@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using EventManagementMVC.Models;
 namespace EventManagementMVC.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class UserRegistrationController : Controller
     {
 
@@ -70,7 +70,8 @@ namespace EventManagementMVC.Controllers
             var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync($"{_apiBaseUrl}UserRegistration/GetByUserId/{id}");
             if (response.IsSuccessStatusCode)
-            {
+            { 
+
                 var apiResult = await response.Content.ReadFromJsonAsync<ApiSingleResult>();
                 if (apiResult != null && apiResult.data != null)
                 {
