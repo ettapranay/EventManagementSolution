@@ -167,44 +167,6 @@ namespace EventManagementMVC.Controllers
                 ViewBag.Message = " Failed to create user: " + result;
                 return View(user); // keep entered values if failed
             }
-            //if (!ModelState.IsValid)
-            //{
-            //    ViewBag.Roles = new SelectList(GetRoles(), "RoleID", "RoleName", user.RoleID);
-            //    return View(user);
-            //}
-            //user.Role = GetRoles().FirstOrDefault(r => r.RoleID == user.RoleID);
-
-            //if (!ModelState.IsValid)
-            //{
-            //    var errors = ModelState
-            //        .Where(ms => ms.Value.Errors.Count > 0)
-            //        .Select(ms => new { Key = ms.Key, Errors = ms.Value.Errors.Select(e => e.ErrorMessage) });
-
-            //    foreach (var error in errors)
-            //    {
-            //        Console.WriteLine($"{error.Key}: {string.Join(", ", error.Errors)}");
-            //    }
-
-            //    return View(user);
-            //}
-
-
-            //user.Role = GetRoles().FirstOrDefault(r => r.RoleID == user.RoleID);
-            //var client = _httpClientFactory.CreateClient();
-            //var response = await client.PostAsJsonAsync(_apiBaseUrl + "UserRegistration/AddRecord", user);
-
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    TempData["Message"] = "User inserted successfully.";
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //else
-            //{
-            //    var result = await response.Content.ReadAsStringAsync();
-            //    ViewBag.Roles = new SelectList(GetRoles(), "RoleID", "RoleName", user.RoleID);
-            //    ViewBag.Message = "Insert failed: " + result;
-            //    return View(user);
-            //}
         }
 
         // Helper classes for API response deserialization

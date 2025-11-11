@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EventManagementMVC.Models.EventRegister
+
+<h2>Event Details</h2>
+
+<table class="table table-bordered">
+    <tr><th>Event Name</th><td>@Model.EventName</td></tr>
+    <tr><th>Description</th><td>@Model.EventDescription</td></tr>
+    <tr><th>Date</th><td>@Model.EventDate.ToShortDateString()</td></tr>
+    <tr><th>Start Time</th><td>@Model.EventTime</td></tr>
+    <tr><th>End Time</th><td>@Model.EventEndTime</td></tr>
+    <tr><th>Location</th><td>@Model.Location</td></tr>
+    <tr><th>Total Seats</th><td>@Model.TotalSeats</td></tr>
+    <tr><th>Ticket Price</th><td>@Model.TicketPrice</td></tr>
+    <tr><th>Status</th><td>@Model.Status</td></tr>
+</table>
+
+<a asp-action="Edit" asp-route-id="@Model.EventID" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -8,4 +8,8 @@
     <RootNamespace>EventManagementMVC</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.3.0" />
+  </ItemGroup>
+
 </Project>
